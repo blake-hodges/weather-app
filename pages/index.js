@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import styles from '../styles/Home.module.css'
 import { MainCard } from '../components/MainCard'
 import ContentBox from '../components/ContentBox'
+import MetricsBox from '../components/MetricsBox'
 
 const App = () => {
     const [cityInput, setCityInput] = useState('London')
