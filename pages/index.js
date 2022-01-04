@@ -1,11 +1,12 @@
 import Head from 'next/head'
 import { useState, useEffect } from 'react'
 import styles from '../styles/Home.module.css'
+import { MainCard } from "../components/MainCard"
 
 const App = () => {
     const [cityInput, setCityInput] = useState('London')
     const [triggerFetch, setTriggerFetch] = useState(true)
-    const [weatherData, setWeatherData] = useState()
+    const [weatherData, setWeatherData] = useState(null)
     const [unitSystem, setUnitSystem] = useState('metric')
 
     useEffect(() => {
@@ -24,12 +25,26 @@ const App = () => {
 
     console.log(weatherData)
 
-
-    return (
-        <div className={styles.wrapper}>
-            <p>Weather App wrapper</p>
-        </div>
-    )
+    if (weatherData == null) {
+        return (
+            <h1>Loading...</h1>
+        )
+    } else {
+        return (
+            <div className={styles.wrapper}>
+                <p>Weather App wrapper</p>
+                {/*}<MainCard
+                    city={weatherData.name}
+                    country={weatherData.sys.country}
+                    description={weatherData.weather[0].description}
+                    iconName={weatherData.weather[0].icon}
+                    unitSystem="metric"
+                    weatherData={weatherData}
+                />*/}
+                <MainCard data={weatherData} />
+            </div>
+        )
+    }
 }
 
 export default App
