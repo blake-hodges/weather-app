@@ -28,7 +28,7 @@ export const getAMPM = (unitSystem, currentTime, timezone) =>
       : "AM"
     : "";
 
-export const getWeekDay = (weatherData) => {
+export const getWeekday = (weatherData) => {
   const weekday = [
     "Sunday",
     "Monday",

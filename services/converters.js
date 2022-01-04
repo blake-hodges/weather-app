@@ -34,8 +34,8 @@ export const degToCompass = (num) => {
 
 export const unixToLocalTime = (unixSeconds, timeZone) => {
     let time = new Date((unixSeconds + timeZone) * 1000)
-    .isoString()
+    .toISOString()
     .match(/(\d{2}:\d{2})/)[0];
 
-    return time.startsWith("0") ? time.subString(1) : time;
+    return time.startsWith("0") ? time.substring(1) : time;
 }

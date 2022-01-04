@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import { useState, useEffect } from 'react'
 import styles from '../styles/Home.module.css'
-import { MainCard } from "../components/MainCard"
+import { MainCard } from '../components/MainCard'
+import Header from '../components/Header'
 
 const App = () => {
     const [cityInput, setCityInput] = useState('London')
@@ -33,6 +34,7 @@ const App = () => {
         return (
             <div className={styles.wrapper}>
                 <p>Weather App wrapper</p>
+                <Header data={weatherData} />
                 {/*}<MainCard
                     city={weatherData.name}
                     country={weatherData.sys.country}
