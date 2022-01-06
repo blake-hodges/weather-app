@@ -1,12 +1,9 @@
-import DateAndTime from './DateAndTime'
-import Search from './Search'
 import styles from './Header.module.css'
 
-const Header = (props) => {
+const Header = ({ children }) => {
     return (
         <div className={styles.wrapper}>
-            <DateAndTime data={props.data} />
-            <Search />
+            {children}
         </div>
     )
 }

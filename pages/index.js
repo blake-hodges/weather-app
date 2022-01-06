@@ -4,9 +4,12 @@ import styles from '../styles/Home.module.css'
 import { MainCard } from '../components/MainCard'
 import ContentBox from '../components/ContentBox'
 import MetricsBox from '../components/MetricsBox'
+import Header from '../components/Header'
+import DateAndTime from '../components/DateAndTime'
+import Search from '../components/Search'
 
 const App = () => {
-    const [cityInput, setCityInput] = useState('London')
+    const [cityInput, setCityInput] = useState('Singapore')
     const [triggerFetch, setTriggerFetch] = useState(true)
     const [weatherData, setWeatherData] = useState(null)
     const [unitSystem, setUnitSystem] = useState('metric')
@@ -34,8 +37,23 @@ const App = () => {
     } else {
         return (
             <div className={styles.wrapper}>
-                <MainCard data={weatherData} />
-                <ContentBox data={weatherData} />
+                <MainCard weatherData={weatherData} />
+                <ContentBox>
+                    <Header>
+                        <DateAndTime weatherData={weatherData} />
+                        <Search
+                            placeholder={"Search a city..."}
+                            value={cityInput}
+                            onChange={(e) => setCityInput(e.target.value)}
+                            onFocus={(e) => {
+                                e.target.value = ""
+                                e.target.placeholder = ""
+                            }}
+                            onKeyDown={(e) => e.key == "Enter" && setTriggerFetch(!triggerFetch)}
+                        />
+                    </Header>
+                    <MetricsBox weatherData={weatherData} />
+                </ContentBox>
             </div>
         )
     }

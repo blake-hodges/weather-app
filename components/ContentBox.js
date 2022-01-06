@@ -1,12 +1,9 @@
 import styles from './ContentBox.module.css'
-import Header from './Header'
-import MetricsBox from './MetricsBox'
 
-const ContentBox = (props) => {
+const ContentBox = ({children}) => {
     return (
         <div className={styles.wrapper}>
-            <Header data={props.data} />
-            <MetricsBox />
+            {children}
         </div>
     )
 }

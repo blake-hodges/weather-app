@@ -2,15 +2,15 @@ import Image from 'next/image'
 import styles from './MetricsCard.module.css'
 
 
-const MetricsCard = () => {
+const MetricsCard = (props) => {
     return (
         <div className={styles.wrapper}>
-            <p>kasfkdsk</p>
+            <p>{props.title}</p>
             <div className={styles.content}>
-                <Image width="100px" height="100px" src={"/icons/01d.svg"} alt="weather icon" />
+                <Image width="100px" height="100px" src={props.icon} alt="weather icon" />
                 <div>
-                    <h1>100</h1>
-                    <p>1</p>
+                    <h1>{props.metric}</h1>
+                    <p>{props.unit}</p>
                 </div>
             </div>
         </div>
