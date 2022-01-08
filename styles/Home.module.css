@@ -8,4 +8,20 @@
   -webkit-backdrop-filter: blur(3px);
   border-radius: 30px;
   overflow: hidden;
+  margin: 10px 20px;
+}
+
+@media only screen and (max-width: 950px) {
+    .wrapper {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin: 20px auto;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .wrapper {
+        margin: 0;
+        border-radius: 0;
+    }
 }

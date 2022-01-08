@@ -26,7 +26,7 @@ const MetricsBox = (props) => {
             <MetricsCard
                 title="Visibility"
                 metric={getVisibility(props.unitSystem, props.weatherData.visibility)}
-                unit={"km"}
+                unit={props.unitSystem == "metric" ? "km" : "miles"}
                 icon="/icons/binocular.png"
             />
             <MetricsCard
