@@ -8,9 +8,10 @@ import Header from '../components/Header'
 import DateAndTime from '../components/DateAndTime'
 import Search from '../components/Search'
 import UnitSwitch from '../components/UnitSwitch'
+import ErrorScreen from '../components/ErrorScreen'
 
 const App = () => {
-    const [cityInput, setCityInput] = useState('Singapore')
+    const [cityInput, setCityInput] = useState('London')
     const [triggerFetch, setTriggerFetch] = useState(true)
     const [weatherData, setWeatherData] = useState(null)
     const [unitSystem, setUnitSystem] = useState('metric')
@@ -35,6 +36,17 @@ const App = () => {
         return (
             <h1>Loading...</h1>
         )
+    } else if (weatherData.message == 'city not found') {
+        return (
+            <ErrorScreen>
+                <Search
+                    status={"error"}
+                    onFocus={(e) => e.target.value = "" }
+                    onKeyDown={(e) => e.key == "Enter" && setTriggerFetch(!triggerFetch)}
+                    onChange={(e) => setCityInput(e.target.value)}
+                />
+            </ErrorScreen>
+        )
     } else {
         return (
             <div className={styles.wrapper}>
@@ -43,6 +55,7 @@ const App = () => {
                     <Header>
                         <DateAndTime weatherData={weatherData} unitSystem={unitSystem} />
                         <Search
+                            status={"search"}
                             placeholder={"Search a city..."}
                             value={cityInput}
                             onChange={(e) => setCityInput(e.target.value)}

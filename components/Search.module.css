@@ -8,3 +8,17 @@
     border: none;
     border-radius: 10px;
 }
+
+.error {
+    height: 40px;
+    font-size: 18px;
+    font-family: "Varela Round", sans-serif;
+    color: #303030;
+    text-align: left;
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 0 10px;
+    border: none;
+    border-radius: 10px;
+}
