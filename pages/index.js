@@ -50,8 +50,8 @@ const App = () => {
     } else {
         return (
             <div className={styles.wrapper}>
-                <MainCard weatherData={weatherData} />
-                <ContentBox>
+                <MainCard weatherData={weatherData} unitSystem={unitSystem} />
+                <ContentBox unitSystem={unitSystem}>
                     <Header>
                         <DateAndTime weatherData={weatherData} unitSystem={unitSystem} />
                         <Search

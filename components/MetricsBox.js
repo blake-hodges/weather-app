@@ -21,7 +21,6 @@ const MetricsBox = (props) => {
             <MetricsCard
                 title="Direction"
                 metric={degToCompass(props.weatherData.wind.speed)}
-                unit={"unit"}
                 icon="/icons/compass.png"
             />
             <MetricsCard
