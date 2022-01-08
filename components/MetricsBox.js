@@ -20,7 +20,7 @@ const MetricsBox = (props) => {
             />
             <MetricsCard
                 title="Direction"
-                metric={degToCompass(props.weatherData.wind.speed)}
+                metric={degToCompass(props.weatherData.wind.deg)}
                 icon="/icons/compass.png"
             />
             <MetricsCard
