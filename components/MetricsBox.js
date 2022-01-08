@@ -1,7 +1,7 @@
 import styles from './MetricsBox.module.css'
 import MetricsCard from './MetricsCard'
-import { getTime, getVisibility, getAMPM  } from '../services/helpers.js'
-import { degToCompass } from '../services/converters.js'
+import { getTime, getVisibility, getAMPM, getWindSpeed } from '../services/helpers.js'
+import { degToCompass, mpsToMph } from '../services/converters.js'
 
 const MetricsBox = (props) => {
     return (
@@ -14,8 +14,8 @@ const MetricsBox = (props) => {
                 />
             <MetricsCard
                 title="Wind Speed"
-                metric={props.weatherData.wind.speed}
-                unit={"km/hr"}
+                metric={getWindSpeed(props.unitSystem, props.weatherData.wind.speed)}
+                unit={ props.unitSystem == "metric" ? "m/s" : "mph" }
                 icon="/icons/wind.png"
             />
             <MetricsCard

@@ -8,7 +8,12 @@ import {
 } from './converters';
 
 export const getWindSpeed = (unitSystem, windInMps) => {
-    unitSystem == "metric" ? windInMps : mpsToMph(windInMps);
+    //unitSystem == "metric" ? windInMps : mpsToMph(windInMps);
+    if (unitSystem == "metric") {
+        return windInMps
+    } else {
+        return mpsToMph(windInMps)
+    }
 }
 
 export const getVisibility = (unitSystem, visibilityInMeters) =>
