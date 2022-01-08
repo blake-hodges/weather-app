@@ -7,6 +7,7 @@ import MetricsBox from '../components/MetricsBox'
 import Header from '../components/Header'
 import DateAndTime from '../components/DateAndTime'
 import Search from '../components/Search'
+import UnitSwitch from '../components/UnitSwitch'
 
 const App = () => {
     const [cityInput, setCityInput] = useState('Singapore')
@@ -40,7 +41,7 @@ const App = () => {
                 <MainCard weatherData={weatherData} />
                 <ContentBox>
                     <Header>
-                        <DateAndTime weatherData={weatherData} />
+                        <DateAndTime weatherData={weatherData} unitSystem={unitSystem} />
                         <Search
                             placeholder={"Search a city..."}
                             value={cityInput}
@@ -52,7 +53,8 @@ const App = () => {
                             onKeyDown={(e) => e.key == "Enter" && setTriggerFetch(!triggerFetch)}
                         />
                     </Header>
-                    <MetricsBox weatherData={weatherData} />
+                    <MetricsBox weatherData={weatherData} unitSystem={unitSystem} />
+                    <UnitSwitch onChange={(e) => setUnitSystem(e.target.value)} />
                 </ContentBox>
             </div>
         )

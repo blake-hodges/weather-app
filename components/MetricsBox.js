@@ -1,6 +1,6 @@
 import styles from './MetricsBox.module.css'
 import MetricsCard from './MetricsCard'
-import { getTime, getVisibility  } from '../services/helpers.js'
+import { getTime, getVisibility, getAMPM  } from '../services/helpers.js'
 import { degToCompass } from '../services/converters.js'
 
 const MetricsBox = (props) => {
@@ -26,20 +26,20 @@ const MetricsBox = (props) => {
             />
             <MetricsCard
                 title="Visibility"
-                metric={getVisibility('metric', props.weatherData.visibility)}
+                metric={getVisibility(props.unitSystem, props.weatherData.visibility)}
                 unit={"km"}
                 icon="/icons/binocular.png"
             />
             <MetricsCard
                 title="Sunrise"
-                metric={getTime('metric', props.weatherData.sys.sunrise, props.weatherData.timezone)}
-                unit={"am"}
+                metric={getTime(props.unitSystem, props.weatherData.sys.sunrise, props.weatherData.timezone)}
+                unit={getAMPM(props.unitSystem, props.weatherData.sys.sunrise, props.weatherData.timezone)}
                 icon="/icons/sunrise.png"
             />
             <MetricsCard
                 title="Sunset"
-                metric={getTime('metric', props.weatherData.sys.sunset, props.weatherData.timezone)}
-                unit={"pm"}
+                metric={getTime(props.unitSystem, props.weatherData.sys.sunset, props.weatherData.timezone)}
+                unit={getAMPM(props.unitSystem, props.weatherData.sys.sunset, props.weatherData.timezone)}
                 icon="/icons/sunset.png"
             />
         </div>
