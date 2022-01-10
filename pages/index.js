@@ -11,7 +11,7 @@ import UnitSwitch from '../components/UnitSwitch'
 import ErrorScreen from '../components/ErrorScreen'
 
 const App = () => {
-    const [cityInput, setCityInput] = useState('London')
+    const [cityInput, setCityInput] = useState('Tokyo')
     const [triggerFetch, setTriggerFetch] = useState(true)
     const [weatherData, setWeatherData] = useState(null)
     const [unitSystem, setUnitSystem] = useState('metric')
@@ -29,8 +29,6 @@ const App = () => {
         }
         getData()
     }, [triggerFetch])
-
-    console.log(weatherData)
 
     if (weatherData == null) {
         return (
